@@ -40,6 +40,7 @@
             return "Numeros iguais.";
         }
     }//fim do método
+    
     function exercicio05($cor) {
         switch ($cor) {
             case 'verde':
@@ -54,6 +55,40 @@
                 return "Cor inválida.";
         }
     }
+    
+   
+    
+    function exercicio08($brancos, $validos, $nulos, $eleitores){
+        if (($brancos + $validos + $nulos) == $eleitores){
+            $pbrancos = porcentagem($brancos,$eleitores);
+            $pvalidos = porcentagem($validos,$eleitores);
+            $pnulos = porcentagem($nulos,$eleitores);
+            return "votos brancos: $pbrancos%\n
+                    votos nulos: $pnulos%\n
+                    votos validos: $pvalidos%";
+        }else{
+            return "total de eleitores é diferente do total";
+        }
+    }  //fim do método
+
+    function porcentagem($total,$eleitores){
+        return($total * 100)/$eleitores;
+    } //fim do método
+    
+    
 
 
+    function calcularNovoSalario($salarioAtual, $percentualReajuste) {
+        if (is_numeric($salarioAtual) && is_numeric($percentualReajuste) && $salarioAtual > 0 && $percentualReajuste >= 0) {
+            
+            $aumento = ($percentualReajuste / 100) * $salarioAtual;
+            
+            
+            $novoSalario = $salarioAtual + $aumento;
+            
+            return $novoSalario;
+        } else {
+            return "Valores inválidos.";
+        }
+    }
 ?>
