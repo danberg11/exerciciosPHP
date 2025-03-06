@@ -6,39 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>Antecessor de um Número</title>
+    <title>Calcular Custo Final do Carro</title>
 </head>
 <body>
-    <?php include('funcoes.php') ?> 
+    <?php include 'funcoes.php'; ?>
 
     <div class="container mt-5">
-        <h2>Calcular Antecessor de um Número</h2>
-        <form class="form-control" method="POST">
+        <h2>Calcular Custo Final do Carro</h2>
+        <form method="POST">
             <div class="mb-3">
-                <label class="form-label">Digite um número: </label>
-                <input type="number" class="form-control" name="numero" required>
+                <label for="custoFabrica" class="form-label">Custo de Fabrica (R$):</label>
+                <input type="number" class="form-control" id="custoFabrica" name="custoFabrica" placeholder="Informe o custo de fábrica" required>
             </div>
-            <button type="submit" class="btn btn-primary">Ver Antecessor</button>
-        </form>  
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
 
-        <div class="form-control mt-3">
+        <div class="mt-4">
             <label class="form-label">Resultado:</label>
             <textarea class="form-control" rows="3" readonly>
                 <?php
-                    // Verifica se o formulário foi enviado
+                    
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                        $numero = $_POST['numero'];
+                        $custoFabrica = floatval($_POST['custoFabrica']);
 
-                        // Chama a função para calcular o antecessor
-                        echo calcularAntecessor($numero);
+                        
+                        echo calcularCustoFinal($custoFabrica);
                     }
                 ?>
             </textarea>
         </div>
-
-        <button class="btn btn-primary mt-3">
-            <a style="color: #fff; text-decoration: none;" href="menu.php">Voltar</a>
-        </button>
+        <button class="btn btn-primary mt-3"><a style="color: #000;text-decoration: none;" href="menu.php">Voltar</a></button>
     </div>
 </body>
 </html>
